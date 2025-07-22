@@ -4,6 +4,7 @@ const PostJob = () => {
   return (
     <div>
       
+    
     </div>
   )
 }

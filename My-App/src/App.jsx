@@ -8,6 +8,8 @@ import PostJob from './Pages/PostJob'
 const App = () => {
   return (
     <div>
+      <Header />
+
       <Routes>
         
         <Route path = "/" element = {<Home/>} ></Route>
@@ -18,10 +20,11 @@ const App = () => {
       
       </Routes>
 
-
+<Footer />
 
     </div>
   )
+
 }
 
 export default App

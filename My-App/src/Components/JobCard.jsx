@@ -8,15 +8,15 @@ const JobCard = ({ job }) => {
       <p><strong>Company:</strong> {job.company}</p>
       <p><strong>Description:</strong> ${job.description}</p>
       <p><strong>Category:</strong> ${job.category}</p>
-<p><strong>Status:</strong> {job.applied ? "Applied" : "Not Applied"}</p>
+      <p><strong>Status:</strong> {job.applied ? "Applied" : "Not Applied"}</p>
 
-    <button>Edit</button>
-    <button>
+     <button>Edit</button>
+     <button>
       Delete
-    </button>
-  </div>
+     </button>
+     </div>
   );
 };
 
-export default GoalCard;
+export default JobCard;
 

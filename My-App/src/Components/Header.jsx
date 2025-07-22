@@ -1,20 +1,45 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
 
 const Header = () => {
   return (
-    <div>
-  <nav>
- 
-    <li><NavLink to='./'>Home</NavLink></li>
-    <li><NavLink to='./postjob'>Post Job</NavLink></li>
-    
-    
-    </nav> 
+    <header style={{
+      backgroundColor: '#f8f9fa',
+      padding: '1rem',
+      borderBottom: '1px solid #ddd'
+    }}>
+      <nav style={{
+        display: 'flex',
+        justifyContent: 'center',
+        gap: '2rem',
+        listStyle: 'none'
+      }}>
+        <li>
+          <NavLink 
+            to="/" 
+            style={({ isActive }) => ({
+              textDecoration: 'none',
+              color: isActive ? '#007bff' : '#333',
+              fontWeight: isActive ? 'bold' : 'normal'
+            })}
+          >
+            Home
+          </NavLink>
+        </li>
+        <li>
+          <NavLink 
+            to="/postjob"
+            style={({ isActive }) => ({
+              textDecoration: 'none',
+              color: isActive ? '#007bff' : '#333',
+              fontWeight: isActive ? 'bold' : 'normal'
+            })}
+          >
+            Post Job
+          </NavLink>
+        </li>
+      </nav>
+    </header>
+  );
+};
 
-
-    </div>
-  )
-}
-
-export default Header
+export default Header;

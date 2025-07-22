@@ -7,7 +7,10 @@ import PostJob from './Pages/PostJob'
 
 const App = () => {
   return (
-    <div>
+    <div >
+
+
+
       <Header />
 
       <Routes>
@@ -20,9 +23,12 @@ const App = () => {
       
       </Routes>
 
+
 <Footer />
 
-    </div>
+
+
+    </div >
   )
 
 }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../Components/PostJob.css';
 import EmployersHub from '../Components/EmployersHub';
@@ -28,7 +28,6 @@ const PostJob = () => {
       }
     });
   }
-
   return (
     <>
       <div className="postjob-container">

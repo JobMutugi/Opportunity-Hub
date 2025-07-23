@@ -21,7 +21,7 @@ const PostJob = () => {
       body: JSON.stringify(newJob),
     }).then((res) => {
       if (res.ok) {
-        navigate('/');
+        navigate('/');  
       } else {
         alert('Something went wrong!');
       }

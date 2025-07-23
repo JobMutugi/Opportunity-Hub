@@ -1,54 +1,30 @@
-import React from 'react';
-import { Link, Navigate } from 'react-router-dom';
-import EditJob from './Editpost';
-import { useNavigate } from 'react-router-dom';
-// import Editpost from '/Editpost'
 
+import React, { useEffect, useState } from 'react';
+import JobCard from '../Components/JobCard';
 
+const Home = () => {
+  const [jobs, setJobs] = useState([]);
 
- const jobs = [
-  {
-    id: 1,
-    title: 'Frontend Developer',
-    company: 'Tech Corp',
-    description: 'Build UIs with React',
-    category: 'Development'
-  },
-  {
-    id: 2,
-    title: 'UX Designer',
-    company: 'Creative Labs',
-    description: 'Design user interfaces',
-    category: 'Design'
-  }
-];
-
-
-
-
-const Home = ({}) => {
-  const navigate = useNavigate()
-const handleEdit = (job) => {
-navigate(`/editjob/${job.id}`, { state: job});
-
-}
-
+  useEffect(() => {
+    fetch('http://localhost:3000/jobs')
+      .then((res) => res.json())
+      .then((data) => setJobs(data))
+      .catch((err) => console.error("Error fetching jobs:", err));
+  }, []);
 
   return (
-    <div className="job-list">
-      <h1>Job Listings</h1>
-      {jobs.map((job) => (
-        <div key={job.id} className="job-card">
-          <h3>{job.title}</h3>
-          <p>{job.company}</p>
-
-         <button onClick={() => {<EditPost></EditPost>}}>Edit</button>
-          
-          
-        </div>
-      ))}
+    <div className="content">
+      <h2>Available Opportunities</h2>
+      {jobs.length === 0 ? (
+        <p>Loading job listings...</p>
+      ) : (
+        jobs.map((job) => (
+          <JobCard key={job.id} job={job} />
+        ))
+      )}
     </div>
   );
 };
 
 export default Home;
+

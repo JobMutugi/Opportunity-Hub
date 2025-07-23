@@ -1,6 +1,6 @@
 import React from 'react';
 
-const JobCard = ({ job, onEdit}) => {
+const JobCard = ({ job, onEdit, onDelete}) => {
 
   return (
     <div style={{ border: '1px solid black', margin: '20px', padding: '10px' }}>
@@ -11,9 +11,7 @@ const JobCard = ({ job, onEdit}) => {
       <p><strong>Status:</strong> {job.applied ? "Applied" : "Not Applied"}</p>
 
      <button onClick={() => onEdit(job)}>Edit</button>
-     <button>
-      Delete
-     </button>
+     <button onClick={() => onDelete(job.id)}>Delete</button>
      </div>
   );
 };

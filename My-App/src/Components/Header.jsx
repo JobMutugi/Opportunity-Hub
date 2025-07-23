@@ -37,6 +37,19 @@ const Header = () => {
             Post Job
           </NavLink>
         </li>
+
+          <li>
+          <NavLink 
+            to="/editjob/:id"
+            style={({ isActive }) => ({
+              textDecoration: 'none',
+              color: isActive ? '#007bff' : '#333',
+              fontWeight: isActive ? 'bold' : 'normal'
+            })}
+          >
+            Edit Job
+          </NavLink>
+        </li>
       </nav>
     </header>
   );

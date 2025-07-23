@@ -1,12 +1,72 @@
-import React from 'react'
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import './PostJob.css';
 
 const PostJob = () => {
-  return (
-    <div>
-      
-    
-    </div>
-  )
-}
+  const [title, setTitle] = useState('');
+  const [company, setCompany] = useState('');
+  const [description, setDescription] = useState('');
+  const [category, setCategory] = useState('');
 
-export default PostJob
+  const navigate = useNavigate();
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    const newJob = { title, company, description, category };
+
+    fetch('http://localhost:3000/jobs', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(newJob),
+    }).then((res) => {
+      if (res.ok) {
+        navigate('/');
+      } else {
+        alert('Something went wrong!');
+      }
+    });
+  }
+
+  return (
+    <div className="postjob-container">
+      <h2 className="postjob-title">Add Job Listing</h2>
+      <form onSubmit={handleSubmit} className="postjob-form">
+        <label className="postjob-label">Job Title:</label>
+        <input
+          type="text"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          className="postjob-input"
+        />
+
+        <label className="postjob-label">Company Name:</label>
+        <input
+          type="text"
+          value={company}
+          onChange={(e) => setCompany(e.target.value)}
+          className="postjob-input"
+        />
+
+        <label className="postjob-label">Job Description:</label>
+        <textarea
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          className="postjob-textarea"
+        />
+
+        <label className="postjob-label">Category:</label>
+        <input
+          type="text"
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+          className="postjob-input"
+        />
+
+        <button type="submit" className="postjob-button">Add Job</button>
+      </form>
+    </div>
+  );
+};
+
+export default PostJob;

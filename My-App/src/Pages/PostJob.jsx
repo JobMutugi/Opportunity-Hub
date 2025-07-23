@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './PostJob.css';
+import '../Components/PostJob.css';
 
 const PostJob = () => {
   const [title, setTitle] = useState('');

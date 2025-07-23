@@ -1,131 +1,4 @@
-// import { useState, useEffect } from 'react';
-// import { useParams, useNavigate } from 'react-router-dom';
-
-// const Editpost = () => { 
-//   const { id } = useParams(); 
-//   const navigate = useNavigate(); 
-
-//   const [job, setJob] = useState({
-//     title: '',
-//     company: '',
-//     description: '',
-//     category: 'Development',
-//     applied: false
-//   });
-
-//   useEffect(() => {
-//    fetch(`http://localhost:3000/jobs/${job.id}`)
-      
-//       const foundJob = mockJobs.find(job => job.id === Number(id));
-//       if (foundJob) {
-//         setJob(foundJob);
-//       }
-//     };
-
-//     fetchJob();
-//   }, [id]); 
-
-//   const handleChange = (e) => {
-//     const { name, value } = e.target;
-//     setJob({
-//        job,       
-//       [name]: value 
-//     });
-//   };
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-    
-//     console.log('Updated job:', job); 
-    
-//     navigate('/'); 
-//   };
-
-//   return (
-//     <div className="edit-post-container">
-//       <h2>Edit Job Post</h2>
-      
-//       <form onSubmit={handleSubmit} className="edit-form">
-//         <div className="form-group">
-//           <label>Job Title:</label>
-//           <input
-//             type="text"
-//             name="title"
-//             value={job.title}
-//             onChange={handleChange}
-//             required
-//             placeholder="Enter job title"
-//           />
-//         </div>
-
-//         <div className="form-group">
-//           <label>Company:</label>
-//           <input
-//             type="text"
-//             name="company"
-//             value={job.company}
-//             onChange={handleChange}
-//             required
-//             placeholder="Enter company name"
-//           />
-//         </div>
-
-//         <div className="form-group">
-//           <label>Description:</label>
-//           <textarea
-//             name="description"
-//             value={job.description}
-//             onChange={handleChange}
-//             required
-//             rows={5}
-//             placeholder="Enter job description"
-//           />
-//         </div>
-
-//         <div className="form-group">
-//           <label>Category:</label>
-//           <select
-//             name="category"
-//             value={job.category}
-//             onChange={handleChange}
-//             required
-//           >
-//             <option value="Development">Development</option>
-//             <option value="Design">Design</option>
-//             <option value="Management">Management</option>
-//           </select>
-//         </div>
-
-//         <div className="form-actions">
-//           <button type="submit" className="save-btn">
-//             Save Changes
-//           </button>
-//           <button 
-//             type="button" 
-//             onClick={() => navigate('/')} 
-//             className="cancel-btn"
-//           >
-//             Cancel
-//           </button>
-//         </div>
-//       </form>
-//     </div>
-//   );
-// };
-
-// export default Editpost;
-
-
-
-
-
-
-
-
-
-
-
-
+import './PostJob.css'
 
 // src/pages/EditJob.jsx
 import React, { useState, useEffect } from 'react';
@@ -183,25 +56,25 @@ fetch(`http://localhost:3000/jobs/${job.id}`, {
   if (!job) return <p>Job data not found</p>;
 
   return (
-    <div className="content">
-      <h2>Edit Post</h2>
-      <form onSubmit={handleSubmit}>
-        <label>Job Title:</label><br />
-        <input value={title} onChange={(e) => setTitle(e.target.value)} required /><br />
+    <div className="postjob-container">
+      <h2 className="postjob-title">Edit Post</h2>
+      <form onSubmit={handleSubmit} className="postjob-form">
+        <label className="postjob-label">Job Title:</label><br />
+        <input className="postjob-input" value={title} onChange={(e) => setTitle(e.target.value)} required /><br />
 
-    <label>Enter Company Name:</label><br />
-    <input type="text" value={company} onChange={(e) => setCompany(e.target.value)} required /><br />
+    <label className="postjob-label">Enter Company Name:</label><br />
+    <input className="postjob-input" type="text" value={company} onChange={(e) => setCompany(e.target.value)} required /><br />
 
-    <label>Job Description:</label><br />
-    <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} /><br />
+    <label className="postjob-label">Job Description:</label><br />
+    <input className="postjob-input" type="text" value={description} onChange={(e) => setDescription(e.target.value)} /><br />
 
-    <label>Category:</label><br />
-    <input value={category} onChange={(e) => setCategory(e.target.value)} required /><br />
+    <label className="postjob-label">Category:</label><br />
+    <input className="postjob-input" value={category} onChange={(e) => setCategory(e.target.value)} required /><br />
 
-    <label>Applied:</label><br />
-    <input type="text" value={applied} onChange={(e) => setApplied(e.target.value)} required /><br /><br />
+    <label className="postjob-label">Applied:</label><br />
+    <input className="postjob-input" type="text" value={applied} onChange={(e) => setApplied(e.target.value)} required /><br /><br />
 
-    <button type="submit">Update Post</button>
+    <button type="submit" className="postjob-button">Update Post</button>
   </form>
 </div>
   );

@@ -3,9 +3,10 @@ import { NavLink } from 'react-router-dom';
 const Header = () => {
   return (
     <header style={{
-      backgroundColor: '#f8f9fa',
+      backgroundColor: '#007bff',
       padding: '1rem',
-      borderBottom: '1px solid #ddd'
+      borderBottom: '1px solid #0056b3',
+      boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
     }}>
       <nav style={{
         display: 'flex',
@@ -18,7 +19,7 @@ const Header = () => {
             to="/" 
             style={({ isActive }) => ({
               textDecoration: 'none',
-              color: isActive ? '#007bff' : '#333',
+              color: isActive ? '#fff' : '#e0e0e0',
               fontWeight: isActive ? 'bold' : 'normal'
             })}
           >
@@ -30,7 +31,7 @@ const Header = () => {
             to="/postjob"
             style={({ isActive }) => ({
               textDecoration: 'none',
-              color: isActive ? '#007bff' : '#333',
+              color: isActive ? '#fff' : '#e0e0e0',
               fontWeight: isActive ? 'bold' : 'normal'
             })}
           >

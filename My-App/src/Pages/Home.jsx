@@ -1,5 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
+import EditJob from './Editpost';
+import { useNavigate } from 'react-router-dom';
+// import Editpost from '/Editpost'
+
+
 
  const jobs = [
   {
@@ -18,7 +23,17 @@ import { Link } from 'react-router-dom';
   }
 ];
 
-const Home = () => {
+
+
+
+const Home = ({}) => {
+  const navigate = useNavigate()
+const handleEdit = (job) => {
+navigate(`/editjob/${job.id}`, { state: job});
+
+}
+
+
   return (
     <div className="job-list">
       <h1>Job Listings</h1>
@@ -26,9 +41,10 @@ const Home = () => {
         <div key={job.id} className="job-card">
           <h3>{job.title}</h3>
           <p>{job.company}</p>
-          <Link to={`/editjob/${job.id}`} className="edit-link">
-            Edit
-          </Link>
+
+         <button onClick={() => {<EditPost></EditPost>}}>Edit</button>
+          
+          
         </div>
       ))}
     </div>

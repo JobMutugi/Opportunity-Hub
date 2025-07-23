@@ -4,7 +4,7 @@ import Footer from './Components/Footer';
 import { Route, Routes } from 'react-router-dom';
 import Home from './Pages/Home';
 import PostJob from './Pages/PostJob';
-import Editpost from './Components/Editpost'; // Note: lowercase 'p' to match filename
+import Editpost from './Components/Editpost'; 
 
 const App = () => {
   return (
@@ -14,7 +14,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/postjob" element={<PostJob />} />
-        <Route path="/editjob/:id" element={<Editpost />} /> {/* Updated to match component name */}
+        <Route path="/editjob/:id" element={<Editpost />} /> {}
       </Routes>
 
       <Footer />

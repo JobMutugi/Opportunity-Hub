@@ -1,0 +1,49 @@
+/* Home.css */
+
+.home-container {
+  padding: 20px;
+  background-color: #f4f7fa;
+  min-height: 100vh;
+}
+
+.home-header {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.filters-container {
+  margin-bottom: 30px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.filters-container input,
+.filters-container select {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #bbb;
+  background-color: #fff;
+}
+
+.filters-container button {
+  padding: 10px 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.filters-container button:hover {
+  background-color: #0056b3;
+}
+
+.jobs-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-bet;
+}

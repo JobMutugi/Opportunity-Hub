@@ -1,0 +1,8 @@
+/* index.css or App.css */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #eef3f7; /* Light blue-gray background */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}

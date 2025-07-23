@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import JobCard from '../Components/JobCard';
 import { useNavigate } from 'react-router-dom';
+import './Home.css'; // Make sure this path matches
 
 const Home = () => {
   const [jobs, setJobs] = useState([]);
@@ -42,65 +43,41 @@ const Home = () => {
   }
 
   return (
-    <div className="content" style={{ paddingLeft: '20px', paddingRight: '20px' }}>
-      <div style={{
-        display: 'block',
-        width: '100%',
-        textAlign: 'center',
-        marginTop: '40px',
-        marginBottom: '20px',
-      }}>
-        <h2>Available Opportunities</h2>
-      </div>
+    <div className="home-container">
+      <h2 style={{
+    fontSize: '2.2rem',
+    fontWeight: 700,
+    color: '#007bff',
+    textAlign: 'center',
+    marginTop: '40px',
+    marginBottom: '25px',
+    position: 'relative'
+  }} className="home-header">Available Opportunities</h2>
 
-      {/* Filters */}
-      <div className="filters-container" style={{
-        marginBottom: '20px',
-        display: 'flex',
-        gap: '10px',
-        flexWrap: 'wrap',
-        justifyContent: 'center'
-      }}>
+      <div className="filters-container">
         <input
           type="text"
           placeholder="Search by title or company..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          style={{ padding: '8px', borderRadius: '4px', border: '1px solid #ccc', minWidth: '200px' }}
         />
         <select
           value={categoryFilter}
           onChange={(e) => setCategoryFilter(e.target.value)}
-          style={{ padding: '8px', borderRadius: '4px', border: '1px solid #ccc' }}
         >
           {categories.map(category => (
             <option key={category} value={category}>{category}</option>
           ))}
         </select>
-        <button 
-          onClick={() => {
-            setSearchTerm('');
-            setCategoryFilter('All');
-          }}
-          style={{
-            padding: '8px 16px',
-            backgroundColor: '#f0f0f0',
-            border: '1px solid #ccc',
-            borderRadius: '4px',
-            cursor: 'pointer'
-          }}
-        >
+        <button onClick={() => {
+          setSearchTerm('');
+          setCategoryFilter('All');
+        }}>
           Clear Filters
         </button>
       </div>
 
-      {/* Job Cards */}
-      <div style={{
-        display: 'flex',
-        flexWrap: 'wrap',
-        justifyContent: 'space-between',
-        gap: '20px',
-      }}>
+      <div className="jobs-wrapper">
         {jobs.length === 0 ? (
           <p>Loading job listings...</p>
         ) : (

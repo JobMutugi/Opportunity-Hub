@@ -43,6 +43,21 @@ const Home = () => {
   }
 
   return (
+    <div style={{
+  display: 'flex',
+  flexWrap: 'wrap',
+  justifyContent: 'space-between', 
+  gap: '20px',
+}} className="content">
+     <div style={{
+  display: 'block',
+  width: '100%',
+  textAlign: 'center',
+  marginTop: '40px',
+  marginBottom: '20px',
+}}><h2>Available Opportunities</h2></div> 
+      {jobs.length === 0 ? (
+        <p>Loading job listings...</p>
     <div className="content">
       <h2>Available Opportunities</h2>
       

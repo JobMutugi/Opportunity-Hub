@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../Components/PostJob.css';
 
@@ -27,14 +27,7 @@ const PostJob = () => {
       }
     });
   }
-  const filteredJobs = jobs.filter((job) => {
-    const matchesSearch = job.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                          job.company.toLowerCase().includes(searchTerm.toLowerCase());
-
-    const matchesCategory = categoryFilter === 'All' || job.category === categoryFilter;
-
-    return matchesSearch && matchesCategory;
-  });
+  // Removed unused filteredJobs declaration
 
   return (
     <div className="postjob-container">

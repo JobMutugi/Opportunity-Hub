@@ -6,6 +6,7 @@ import Home from './Pages/Home';
 import PostJob from './Pages/PostJob';
 import Editpost from './Components/Editpost'; 
 
+
 const App = () => {
   return (
     <div>
@@ -14,7 +15,8 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/postjob" element={<PostJob />} />
-        <Route path="/editjob/:id" element={<Editpost />} /> {}
+        <Route path="/editjob/:id" element={<Editpost />} />
+        <Route path="/employershub" element={<PostJob />} />
       </Routes>
 
       <Footer />

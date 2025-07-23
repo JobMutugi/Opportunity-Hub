@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../Components/PostJob.css';
+import EmployersHub from '../Components/EmployersHub';
 
 const PostJob = () => {
   const [title, setTitle] = useState('');
@@ -29,6 +30,7 @@ const PostJob = () => {
   }
 
   return (
+    <>
     <div className="postjob-container">
       <h2 className="postjob-title">Add Job Listing</h2>
       <form onSubmit={handleSubmit} className="postjob-form">
@@ -66,6 +68,8 @@ const PostJob = () => {
         <button type="submit" className="postjob-button">Add Job</button>
       </form>
     </div>
+    <div><EmployersHub /></div>
+    </>
   );
 };
 

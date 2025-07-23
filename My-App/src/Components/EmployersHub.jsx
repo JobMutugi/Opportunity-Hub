@@ -1,9 +1,9 @@
 
 import React, { useEffect, useState } from 'react';
-import JobCard from '../Components/JobCard';
+import EmployerJobCard from './EmployerJobCard';
 import { useNavigate } from 'react-router-dom';
 
-const Home = () => {
+const EmployersHub = () => {
   const [jobs, setJobs] = useState([]);
   const navigate = useNavigate();
 
@@ -34,29 +34,23 @@ const Home = () => {
 
 
   return (
-    <div style={{
+    <div className="content" style={{
   display: 'flex',
   flexWrap: 'wrap',
   justifyContent: 'space-between', // or 'center' if you prefer
   gap: '20px',
-}} className="content">
-     <div style={{
-  display: 'block',
-  width: '100%',
-  textAlign: 'center',
-  marginTop: '40px',
-  marginBottom: '20px',
-}}><h2>Available Opportunities</h2></div> 
+}}>
+      
       {jobs.length === 0 ? (
         <p>Loading job listings...</p>
       ) : (
         jobs.map((job) => (
-          <JobCard onEdit={handleEdit} onDelete={handleDelete} key={job.id} job={job} />
+          <EmployerJobCard onEdit={handleEdit} onDelete={handleDelete} key={job.id} job={job} />
         ))
       )}
     </div>
   );
 };
 
-export default Home;
+export default EmployersHub;
 

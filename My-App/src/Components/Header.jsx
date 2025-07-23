@@ -34,7 +34,7 @@ const Header = () => {
               fontWeight: isActive ? 'bold' : 'normal'
             })}
           >
-            Post Job
+            Employer Hub
           </NavLink>
         </li>
       </nav>

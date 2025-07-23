@@ -11,6 +11,15 @@ const Home = () => {
       .catch((err) => console.error("Error fetching jobs:", err));
   }, []);
 
+     const filteredJobs = jobs.filter((job) => {
+    const matchesSearch = job.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                          job.company.toLowerCase().includes(searchTerm.toLowerCase());
+
+    const matchesCategory = categoryFilter === 'All' || job.category === categoryFilter;
+
+    return matchesSearch && matchesCategory;
+  });
+
   return (
     <div className="content">
       <h2>Available Opportunities</h2>

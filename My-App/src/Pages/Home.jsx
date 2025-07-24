@@ -10,7 +10,7 @@ const Home = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('http://localhost:3000/jobs')
+    fetch('https://opportunity-hub-iw4d.onrender.com/jobs')
       .then((res) => res.json())
       .then((data) => setJobs(data))
       .catch((err) => console.error("Error fetching jobs:", err));
@@ -31,7 +31,7 @@ const Home = () => {
   }
 
   function handleDelete(id) {
-    fetch(`http://localhost:3000/jobs/${id}`, {
+    fetch(`https://opportunity-hub-iw4d.onrender.com/jobs/${id}`, {
       method: 'DELETE'
     })
     .then((res) => {

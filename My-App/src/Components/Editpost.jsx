@@ -38,7 +38,7 @@ const updatedJob = {
   applied,
 };
 
-fetch(`http://localhost:3000/jobs/${job.id}`, {
+fetch(`https://opportunity-hub-iw4d.onrender.com/jobs/${job.id}`, {
   method: 'PUT',
   headers: { 'Content-Type': 'application/json' },
   body: JSON.stringify(updatedJob),

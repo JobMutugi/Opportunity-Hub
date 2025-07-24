@@ -18,7 +18,7 @@ const Login = () => {
 
     const endpoint = role === 'jobseeker' ? 'jobseekers' : 'recruiters';
 
-    fetch(`http://localhost:3000/${endpoint}`, {
+    fetch(`https://opportunity-hub-iw4d.onrender.com/${endpoint}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

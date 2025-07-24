@@ -2,7 +2,7 @@ import React from 'react';
 
 const Delete = ({ jobId, onDelete }) => {
   const handleClick = () => {
-    fetch(`http://localhost:3001/jobs/${jobId}`, {
+    fetch(`https://opportunity-hub-iw4d.onrender.com/jobs/${jobId}`, {
       method: 'DELETE',
     })
       .then((res) => {

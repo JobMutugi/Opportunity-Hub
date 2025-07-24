@@ -16,7 +16,7 @@ const PostJob = () => {
 
     const newJob = { title, company, description, category };
 
-    fetch('http://localhost:3000/jobs', {
+    fetch('https://opportunity-hub-iw4d.onrender.com/jobs', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(newJob),

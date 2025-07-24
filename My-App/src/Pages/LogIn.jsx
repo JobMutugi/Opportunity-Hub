@@ -1,53 +1,62 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './LogIn.css'; // Ensure this path matches your project structure
+import './LogIn.css';
 
 const Login = () => {
+  const [role, setRole] = useState('jobseeker');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [role, setRole] = useState('jobseeker');
   const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
-    console.log({ email, password, role });
 
-    if (role === 'jobseeker') {
-      navigate('/home');
-    } else {
-      navigate('/postjob');
-    }
+    fetch('http://localhost:3000/users')
+      .then((res) => res.json())
+      .then((users) => {
+        const user = users.find(
+          (u) => u.email === email && u.password === password && u.role === role
+        );
+
+        if (user) {
+          // Navigate based on role
+          if (role === 'jobseeker') {
+            navigate('/jobseeker-dashboard');
+          } else {
+            navigate('/recruiter-dashboard');
+          }
+        } else {
+          alert('Invalid credentials or role.');
+        }
+      });
   };
 
   return (
     <div className="login-container">
-      <h2 className="login-title">Login to Opportunity Hub</h2>
-      <form onSubmit={handleLogin} className="login-form">
+      <h2>Login</h2>
+      <form className="login-form" onSubmit={handleLogin}>
+        <select value={role} onChange={(e) => setRole(e.target.value)}>
+          <option value="jobseeker">Job Seeker</option>
+          <option value="recruiter">Recruiter</option>
+        </select>
+
         <input
           type="email"
-          placeholder="Email"
+          placeholder="Email address"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
-          className="login-input"
         />
+
         <input
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
-          className="login-input"
         />
-        <select
-          value={role}
-          onChange={(e) => setRole(e.target.value)}
-          className="login-select"
-        >
-          <option value="jobseeker">Job Seeker</option>
-          <option value="recruiter">Recruiter</option>
-        </select>
-        <button type="submit" className="login-button">Login</button>
+
+        <button type="submit">Login</button>
       </form>
     </div>
   );

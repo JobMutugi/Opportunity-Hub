@@ -32,5 +32,19 @@
       "category": "Management",
       "applied": false
     }
+  ],
+  "jobseekers": [
+    {
+      "id": "1",
+      "name": "Alice Johnson",
+      "email": ""
+    }
+  ],
+  "recruiters": [
+    {
+      "id": "1",
+      "name": "Bob Smith",
+      "email": ""
+    }
   ]
 }

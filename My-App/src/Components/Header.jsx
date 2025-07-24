@@ -28,6 +28,18 @@ const Header = () => {
         </li>
         <li>
           <NavLink 
+            to="/home" 
+            style={({ isActive }) => ({
+              textDecoration: 'none',
+              color: isActive ? '#fff' : '#e0e0e0',
+              fontWeight: isActive ? 'bold' : 'normal'
+            })}
+          >
+            Job Seeker Hub
+          </NavLink>
+        </li>
+        <li>
+          <NavLink 
             to="/postjob"
             style={({ isActive }) => ({
               textDecoration: 'none',

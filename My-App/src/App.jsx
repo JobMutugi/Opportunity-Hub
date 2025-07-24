@@ -5,6 +5,7 @@ import { Route, Routes } from 'react-router-dom';
 import Home from './Pages/Home';
 import PostJob from './Pages/PostJob';
 import Editpost from './Components/Editpost'; 
+import Login from './Pages/LogIn';
 
 
 const App = () => {
@@ -13,7 +14,8 @@ const App = () => {
       <Header />
 
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/postjob" element={<PostJob />} />
         <Route path="/editjob/:id" element={<Editpost />} />
         {/* <Route path="/employershub" element={<PostJob />} /> */}

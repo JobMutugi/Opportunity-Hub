@@ -1,62 +1,75 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './LogIn.css';
+import './LogIn.css'; 
 
 const Login = () => {
-  const [role, setRole] = useState('jobseeker');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [role, setRole] = useState('jobseeker');
   const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
 
-    fetch('http://localhost:3000/users')
-      .then((res) => res.json())
-      .then((users) => {
-        const user = users.find(
-          (u) => u.email === email && u.password === password && u.role === role
-        );
+    const loginData = {
+      email,
+      password
+    };
 
-        if (user) {
-          // Navigate based on role
+    const endpoint = role === 'jobseeker' ? 'jobseekers' : 'recruiters';
+
+    fetch(`http://localhost:3000/${endpoint}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(loginData)
+    })
+      .then((res) => {
+        if (res.ok) {
           if (role === 'jobseeker') {
-            navigate('/jobseeker-dashboard');
+            navigate('/home');
           } else {
-            navigate('/recruiter-dashboard');
+            navigate('/postjob');
           }
         } else {
-          alert('Invalid credentials or role.');
+          alert("Failed to log in");
         }
+      })
+      .catch((err) => {
+        console.error("Error saving login:", err);
       });
   };
 
   return (
     <div className="login-container">
-      <h2>Login</h2>
-      <form className="login-form" onSubmit={handleLogin}>
-        <select value={role} onChange={(e) => setRole(e.target.value)}>
-          <option value="jobseeker">Job Seeker</option>
-          <option value="recruiter">Recruiter</option>
-        </select>
-
+      <h2 className="login-title">Login to Opportunity Hub</h2>
+      <form onSubmit={handleLogin} className="login-form">
         <input
           type="email"
-          placeholder="Email address"
+          placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
+          className="login-input"
         />
-
         <input
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
+          className="login-input"
         />
-
-        <button type="submit">Login</button>
+        <select
+          value={role}
+          onChange={(e) => setRole(e.target.value)}
+          className="login-select"
+        >
+          <option value="jobseeker">Job Seeker</option>
+          <option value="recruiter">Recruiter</option>
+        </select>
+        <button type="submit" className="login-button">Login</button>
       </form>
     </div>
   );

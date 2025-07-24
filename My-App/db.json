@@ -1,0 +1,50 @@
+{
+  "jobs": [
+    {
+      "id": "1",
+      "title": "Frontend Developer",
+      "company": "Tech Corp",
+      "description": "Build responsive UIs with React and TypeScript.",
+      "category": "Development",
+      "applied": false
+    },
+    {
+      "id": "2",
+      "title": "UX Designer",
+      "company": "Creative Labs",
+      "description": "Design user-friendly interfaces for web apps.",
+      "category": "Design",
+      "applied": false
+    },
+    {
+      "id": "3",
+      "title": "Backend Engineer",
+      "company": "Data Systems",
+      "description": "Develop scalable APIs using Node.js and MongoDB.",
+      "category": "Development",
+      "applied": true
+    },
+    {
+      "id": "4",
+      "title": "Product Manager",
+      "company": "Innovate Inc",
+      "description": "Lead cross-functional teams to deliver products.",
+      "category": "Management",
+      "applied": false
+    }
+  ],
+  "jobseekers": [
+    {
+      "id": "1",
+      "name": "Alice Johnson",
+      "email": ""
+    }
+  ],
+  "recruiters": [
+    {
+      "id": "1",
+      "name": "Bob Smith",
+      "email": ""
+    }
+  ]
+}

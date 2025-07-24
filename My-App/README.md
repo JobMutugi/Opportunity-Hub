@@ -1,12 +1,40 @@
-# React + Vite
+## Getting Started
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+1. **Install dependencies:**
+    bash
+    npm install
+    
 
-Currently, two official plugins are available:
+2. **Run the development server:**
+    bash
+    npm run dev
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Purpose of the Application
 
-## Expanding the ESLint configuration
+    This application allows job seekers and recruiters to log in. Job seekers can view job opportunities in the Job Seekers Hub, while recruiters can add new job postings in the Employers Hub.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+3. **Build for production:**
+    bash
+    npm run build
+    
+
+## Features
+
+-  Fast development with Vite
+-  React with HMR (Hot Module Replacement)
+
+## Folder Structure
+
+my-app/
+├── public/
+├── src/
+│   ├── App.jsx
+│   └── main.jsx
+├── package.json
+└── vite.config.js
+
+
+## Learn More
+
+- [Vite Documentation](https://vitejs.dev/)
+- [React Documentation](https://react.dev/)
